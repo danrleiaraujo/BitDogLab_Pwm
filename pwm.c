@@ -2,7 +2,13 @@
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"
 
-#define SERVO_PIN 22  // GPIO onde o servo está conectado
+#define BITDOGLAB 0
+
+#if BITDOGLAB
+    #define SERVO_PIN 12  // GPIO onde está o LED RGB na placa
+#else 
+    #define SERVO_PIN 22 // GPIO onde o servo está conectado
+#endif
 
 const float DIVIDER_PWM = 125.0; // Valor encontrado em calculos na parte de anotações
 
