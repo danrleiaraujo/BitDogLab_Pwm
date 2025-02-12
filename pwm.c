@@ -57,12 +57,15 @@ int main() {
     pwm_set_enabled(slice, 1); //habilitar o pwm no slice correspondente
 
     pwm_set_gpio_level(SERVO_PIN, MAX_PULSE); // Manda o valor do pulso maximo para o pino
+    printf("180 graus\n");
     sleep_ms(DELAY_MS_P); //  5s
 
     pwm_set_gpio_level(SERVO_PIN, MID_PULSE); // Manda o valor do pulso medio para o pino
+    printf("90 graus\n");
     sleep_ms(DELAY_MS_P); //  5s
 
     pwm_set_gpio_level(SERVO_PIN, MIN_PULSE); // Manda o valor do pulso minimo para o pino
+    printf("0 graus\n");
     sleep_ms(DELAY_MS_P); //  5s
 
     pulso = MIN_PULSE; 
@@ -70,6 +73,7 @@ int main() {
     // Loop para movimentação contínua do servo entre 0° e 180°
     while (1) {
         mov_periodica(pulso);
+        printf("O valor atual do pulso eh: %d\n", pulso);
         sleep_ms(DELAY_MS_I);
     }
 }
